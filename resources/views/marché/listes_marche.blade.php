@@ -28,7 +28,7 @@
             <tbody>
                 @foreach ($marché as $marché)
             <tr>
-                <td class="pt-3-half" contenteditable="true">{{ $marché->id }}</td>
+                <td class="pt-3-half" contenteditable="true"><span class="badge @if($marché->statut == 'En Etude') badge-danger @else badge-success @endif ">{{ $marché->id }}</span></td>
                 <td class="pt-3-half" contenteditable="true">{{ $marché->reference }}</td>
                 <td class="pt-3-half" contenteditable="true">{{ $marché->type_marche }}</td>
                 <td class="pt-3-half" contenteditable="true">{{ $marché->montant }}</td>
