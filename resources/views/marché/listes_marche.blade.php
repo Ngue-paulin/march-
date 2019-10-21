@@ -19,7 +19,7 @@
                 <th class="text-center">Description</th>
                 <th class="text-center">Date Début</th>
                 <th class="text-center">Date Fin</th>
-                 <th class="text-center">Maitre D'ouvrage</th>
+                <th class="text-center">Maitre D'ouvrage</th>
                 <th class="text-center">Statut</th>
                 <th class="text-center">Détail</th>
                 <th class="text-center">Changer Statut</th>
@@ -40,11 +40,10 @@
                 <td class="pt-3-half">
                 <span class="table-up"><a href="{{ route('marches.show' , $marché) }}" ><button type="button"
                     class="btn btn-secondary btn-rounded btn-sm my-0 btn-lg btn-block"><i class="material-icons ">info</i></button></a></span>
-                <td>
-                <span class="table-remove"><a href="{{ route('marches.show' , $marché) }}" ><button type="button"
-                        class="btn btn-primary btn-rounded btn-sm my-0 btn-lg btn-block" ><i class="material-icons ">edit</i></button></a></span>
                 </td>
-
+                <td>
+                <span class="table-remove"><button type="button" data-toggle="modal" data-target="Modif_statut"
+                        class="btn btn-primary btn-rounded btn-sm my-0 btn-lg btn-block" ><i class="material-icons ">edit</i></button></span>
                 </td>
             </tr>
                 @endforeach
@@ -56,6 +55,28 @@
      @else
         Aucun Marché pour le Moment !!!
      @endif
+     <!-- modal -->
+     <div class="modal fade" id="Modif_statut" tabindex="-1" role="dialog" aria-labelledby="Modif_statutTitle" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+             <div class="modal-content">
+                 <div class="modal-header">
+                         <h5 class="modal-title" id="Modif_statutLongTitle"><span class="badge-success">Changer Le Statut !</span></h5>
+                         <button type="button" class="close" data-dismiss="modal" aria-labelledby="close">
+                             <span aria-checked="true">&times;</span>
+                         </button>
+                 </div>
+                 <div class="modal-body">
+                     gjhdjgkhdkjghdkjghdkjghdkjghdjkghdgjkhdgjkhdgjhgjkhg
+                 </div>
+                 <div class="modal-footer">
+                     <button type="button" class="btn-secondary" data-dismiss="modal"><span><i class="material-icons">cancel</i></span></button>
+                     <a href="{{ route('marches.show' , $marché) }}" ><button type="button" class="btn-primary"><span><i class="material-icons">check</i></span></button></a>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+
 
 @endsection
 

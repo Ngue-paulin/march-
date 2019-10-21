@@ -46,14 +46,16 @@
                             </div>
                     </div>
 
-                   <div class="form-group row">
+                    <div class="form-group row">
                         <label style="color: blue" class="col-md-4 col-form-label text-md-right" for="statut" >{{ __('Statut') }}</label>
-                        <div class="input-field col s5">
-                             <input id="statut" type="text" class="form-control validate @error('statut') is-invalid @enderror" name="statut" value="{{ old('statut') }}" required="required" autocomplete="statut" autofocus>
-
-                             {!! $errors->first('statut', '<span style="color: red" class="help-block" >:message</span>') !!}
-                        </div>
-                   </div>
+                        <div class="input-field col s12 m6">
+                            <select id="statut" type="text" class="form-control validate @error('statut') is-invalid @enderror" name="statut" value="{{ old('statut') }}" autocomplete="statut" autofocus required="required">
+                                <option  value="En Etude">En Etude</option>
+                                <option  value="Validé">Validé</option>
+                            </select>
+                         {!! $errors->first('user_id', '<span style="color: red" class="help-block" >:message</span>') !!}
+                    </div>
+                </div>
 
                    <div class="form-group row">
                         <label style="color: blue" class="col-md-4 col-form-label text-md-right" for="type_marche" >{{ __('Type de Marché') }}</label>
