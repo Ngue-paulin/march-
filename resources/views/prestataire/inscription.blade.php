@@ -4,7 +4,7 @@
 <div class="container">
     <div class="col-md-20 justify expand-block">
         <div class="card">
-            <div class="card-header"><strong>{{ __('Renseignement Sur Le Prestataire') }}</strong></div>
+            <div class="card-header"><h3>{{ __('Renseignement Sur Le Prestataire') }}</h3></div>
                <div class="col-md-9 col-form-label text-md-right mb-4">
                   <span style="color: cyan"><h4> Entrer Les Informations Correctes Sur Le Prestataire </h4></span>
                </div>
