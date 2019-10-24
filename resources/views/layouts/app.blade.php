@@ -19,7 +19,9 @@
     <script src="https://kit.fontawesome.com/yourcode.js"></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- <link href="{{ asset('css/material/materialize.min.css') }}" rel="stylesheet"> -->
+    <link href="{{ asset('css/bootstrap4/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap4/bootstrap.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/new.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -139,9 +141,10 @@
 
             </main>
     </div>
-   <!-- <script src="{{ asset('js/material/materialize.min.js') }}" defer></script> -->
-    <script src="{{ asset('js/jequery-3.4.1.min.js') }}" defer></script>
-    <script src="{{ asset('js/jequery-3.4.1.js') }}" defer></script>
+        <script src="{{ asset('js/bootstrap4/bootstrap.min.js') }}" >
+        <script src="{{ asset('js/bootstrap4/bootstrap.js') }}" >
+        <script src="{{ asset('js/jequery-3.4.1.min.js') }}" ></script>
+        <script src="{{ asset('js/jequery-3.4.1.js') }}" ></script>
 </body>
 <script src="https://kit.fontawesome.com/yourcode.js"></script>
 </html>

@@ -16,9 +16,10 @@ class MarchesController extends Controller
      */
     public function index()
     {
+        $users = User::all();
         $marché = Marche::all();
 
-        return view('marché.listes_marche', compact('marché'));
+        return view('marché.listes_marche', compact('marché') , compact('users'));
     }
 
     /**
@@ -57,7 +58,7 @@ class MarchesController extends Controller
             'montant' => 'required|Integer',
             'delai_livreson' => 'required|string',
             'lieu_livreson' => 'required|string',
-            'financement' => 'required|string', 
+            'financement' => 'required|string',
             'imputation' => 'required|string',
             'description' => 'required|string|max:200',
             'date_livréson' => 'required|date',
@@ -79,7 +80,7 @@ class MarchesController extends Controller
         'financement' => $request->financement,
         'imputation' => $request->imputation,
         'date_livréson' => $request->date_livréson,
-        'description' => $request->description,  
+        'description' => $request->description,
         'user_id' => $request->user_id,
        // 'prestataire_id' => $request->prestataire_id,
 
@@ -137,7 +138,7 @@ class MarchesController extends Controller
             'montant' => 'required|Integer',
             'delai_livreson' => 'required|string',
             'lieu_livreson' => 'required|string',
-            'financement' => 'required|string', 
+            'financement' => 'required|string',
             'imputation' => 'required|string',
             'description' => 'required|string|max:200',
             'date_livréson' => 'required|date',

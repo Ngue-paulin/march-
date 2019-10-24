@@ -17,10 +17,10 @@
        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <script src="https://kit.fontawesome.com/yourcode.js"></script>
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- <link href="{{ asset('css/material/materialize.min.css') }}" rel="stylesheet"> -->
-
-    </head>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap4/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/new.css') }}" rel="stylesheet">
+</head>
     <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
@@ -47,12 +47,33 @@
                             </div>
                          Laravel
 
+                        <!-- Button to Open the Modal -->
+                        <a href="#oModal"><button type="button" class="btn btn-primary"><i class="material-icons">edit</i></button></a>
+
+
+<div id="oModal" class="oModal">
+    <div>
+        <header>
+          <a href="#fermer" title="Fermer la fenêtre" class="droite">X</a>
+          <h2>Exemple de fenêtre « modal » stylisée </h2>
+        </header>
+         <section>
+         <p>Description du message. </p>
+         </section>
+         <footer class="cf">
+         <a href="#fermer" class="btn droite" title="Fermer la fenêtre">Fermer</a>
+         </footer>
+    </div>
+</div>
+
+
                      </div>
                 </div>
 
             </div>
         </div>
-        <!-- <script src="{{ asset('js/jequery-3.4.1.min.js') }}" defer></script>
-        <script src="{{ asset('js/jequery-3.4.1.js') }}" defer></script> -->
+            <script type="text/javascript" src="{{ asset('js/bootstrap4/bootstrap.min.js') }}">
+            <script type="text/javascript" src="{{ asset('js/jequery-3.4.1.min.js') }}" ></script>
     </body>
+
 </html>

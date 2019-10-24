@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Système_de_Gestion_des_Marchés_MINADER'),
 
     /*
     |--------------------------------------------------------------------------

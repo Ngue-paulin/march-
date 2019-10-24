@@ -42,8 +42,8 @@
                     class="btn btn-secondary btn-rounded btn-sm my-0 btn-lg btn-block"><i class="material-icons ">info</i></button></a></span>
                 </td>
                 <td>
-                <span class="table-remove"><button type="button" data-toggle="modal" data-target="Modif_statut"
-                        class="btn btn-primary btn-rounded btn-sm my-0 btn-lg btn-block" ><i class="material-icons ">edit</i></button></span>
+                <a href="#oModal"><button type="button"
+                        class="btn btn-primary btn-rounded btn-sm my-0 btn-lg btn-block" ><i class="material-icons ">edit</i></button></a>
                 </td>
             </tr>
                 @endforeach
@@ -56,27 +56,65 @@
         Aucun Marché pour le Moment !!!
      @endif
      <!-- modal -->
-     <div class="modal fade" id="Modif_statut" tabindex="-1" role="dialog" aria-labelledby="Modif_statutTitle" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-centered" role="document">
-             <div class="modal-content">
-                 <div class="modal-header">
-                         <h5 class="modal-title" id="Modif_statutLongTitle"><span class="badge-success">Changer Le Statut !</span></h5>
-                         <button type="button" class="close" data-dismiss="modal" aria-labelledby="close">
-                             <span aria-checked="true">&times;</span>
-                         </button>
-                 </div>
-                 <div class="modal-body">
-                     gjhdjgkhdkjghdkjghdkjghdkjghdjkghdgjkhdgjkhdgjhgjkhg
-                 </div>
-                 <div class="modal-footer">
-                     <button type="button" class="btn-secondary" data-dismiss="modal"><span><i class="material-icons">cancel</i></span></button>
-                     <a href="{{ route('marches.show' , $marché) }}" ><button type="button" class="btn-primary"><span><i class="material-icons">check</i></span></button></a>
-                 </div>
-             </div>
-         </div>
-     </div>
+
+     <div id="oModal" class="oModal">
+        <div class="scrollbox">
+            <header style="color: red">
+              <a href="#fermer" title="Fermer la fenêtre" class="droite">X</a>
+              <h2>Changer le Statut</h2>
+            </header>
+             <section style="overflow-wrap: scroll; ">
+                <form method="POST" action="{{ route('marches.update' , $marché) }} " novalidate>
+                    {{csrf_field()}}
+                    {{ method_field('PUT')}}
+                    <div class="row justify-content">
+                           <div  class="form-group slot-start col-md-6 align-left">
+                               <div class="form-group row">
+                                     <label style="color: blue" class="col-md-4 col-form-label text-md-right" for="statut" >{{ __('Statut') }}</label>
+                                     <div class="input-field col s5">
+                                             <input id="statut" type="text" class="form-control validate @error('statut') is-invalid @enderror" name="statut" value="{{ old('statut') ?? $marché->statut }}" required="required" autocomplete="statut" autofocus>
+
+                                             {!! $errors->first('statut', '<span style="color: red" class="help-block" >:message</span>') !!}
+                                     </div>
+                                </div>
+                          </div>
+
+                    <div class="row justify-content">
+                    <div class="form-group row has-error">
+                                <label class="col-md-4 col-form-label text-md-right hi" style="color: blue" for="reference" >{{ __('La Référence du marché') }}</label>
+                                <div class="input-field col s5">
+                                     <input name="reference" id="reference" type="text" class="hidden form-control validate"  value="{{ old('reference') ?? $marché->reference}}" required="required" autocomplete="reference" autofocus>
+                                     {!! $errors->first('reference', '<span style="color: red" class="help-block" >:message</span>') !!}
+                                </div>
+                        </div>
+                     </div>
+                    </div>
+                     <div class="row justify-content">
+                                        <div  class="form-group slot-start col-md-6 align-left">
+                                                <div class="col-md-6 offset-md-4">
+                                                    <button type="submit" class="btn btn-primary" >
+                                                        {{ __('Enrégistrer') }}
+                                                    </button>
+                                                </div>
+                                        </div>
+
+                                        <div class="form-group col-md-6 align-right slot-end">
+                                                <div class="col-md-6 offset-md-4">
+                                                        <button type="reset" class="btn btn-primary">
+                                                            {{ __('Annuler') }}
+                                                        </button>
+                                                </div>
+                                        </div>
+                    </div>
 
 
+
+             </section>
+             <footer class="cf">
+             <a href="#fermer" class="btn droite" title="Fermer la fenêtre">Fermer</a>
+             </footer>
+        </div>
+    </div>
 
 @endsection
 
