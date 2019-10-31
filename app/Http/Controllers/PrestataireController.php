@@ -43,7 +43,6 @@ class PrestataireController extends Controller
             'entreprise' => 'string|max:255',
             'responsable' => 'string|max:255',
             'profession' => 'string|max:255',
-            'entreprise' => 'required|string',
             'secteur_activite' => 'required|string',
             'tel' => 'required|string|max:255',
             'email' => 'required|string|max:255',

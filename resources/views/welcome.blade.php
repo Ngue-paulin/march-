@@ -46,27 +46,6 @@
                                     <img class="images" style="height: 25%; width: 25%" src="{{ asset('images/logo.jpg') }}">
                             </div>
                          Laravel
-
-                        <!-- Button to Open the Modal -->
-                        <a href="#oModal"><button type="button" class="btn btn-primary"><i class="material-icons">edit</i></button></a>
-
-
-<div id="oModal" class="oModal">
-    <div>
-        <header>
-          <a href="#fermer" title="Fermer la fenêtre" class="droite">X</a>
-          <h2>Exemple de fenêtre « modal » stylisée </h2>
-        </header>
-         <section>
-         <p>Description du message. </p>
-         </section>
-         <footer class="cf">
-         <a href="#fermer" class="btn droite" title="Fermer la fenêtre">Fermer</a>
-         </footer>
-    </div>
-</div>
-
-
                      </div>
                 </div>
 

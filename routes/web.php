@@ -23,4 +23,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('marches', 'MarchesController');
 Route::resource('prestataires', 'PrestataireController');
+Route::resource('attributions', 'AtributionController');
 

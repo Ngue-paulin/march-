@@ -148,7 +148,7 @@
                     <div class="input-field col s12 m9">
                         <textarea id="description" type="text" class="form-control validate materialize-textarea" name="description" value="{{ old('description') }}" required="required" autocomplete="description" autofocus></textarea>
 
-                         {!! $errors->first('user_id', '<spanstyle="color: red" class="help-block" >:message</span>') !!}
+                         {!! $errors->first('description', '<spanstyle="color: red" class="help-block" >:message</span>') !!}
                     </div>
             </div>
 

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Atribution;
+use App\Marche;
+use App\User;
+use App\Prestataire;
 use Illuminate\Http\Request;
 
 class AtributionController extends Controller
@@ -14,8 +17,13 @@ class AtributionController extends Controller
      */
     public function index()
     {
-      $atribution = Atribution::all();
-      return view('atribution.liste' , compact('atribution'));
+        $atribution = Atribution::all();
+        $user = User::all();
+        $marché = Marche::all();
+        $prestataire =Prestataire::all();
+
+       //dd($atribution);
+       return view('atribution.liste', compact('atribution' , 'user' , 'marché' , 'prestataire' ));
     }
 
     /**
@@ -25,7 +33,10 @@ class AtributionController extends Controller
      */
     public function create()
     {
-        return view('atribution.atribue');
+        $users = User::all();
+        $marché = Marche::all();
+        $prestataire = Prestataire::all();
+        return view('atribution.atribue' , compact('marché' , 'prestataire' , 'users'));
     }
 
     /**
@@ -40,10 +51,21 @@ class AtributionController extends Controller
             'user_id' => 'required|Integer',
             'marche_id' => 'required|Integer',
             'prestataire_id' => 'required|Integer',
-            'date_livreson' => 'required|date',
+            'date_livréson' => 'required|date',
             'delai_livreson' => 'required|string',
             'lieu_livreson' => 'required|string'
         ]);
+
+        Atribution::create([
+            'user_id' => $request->user_id,
+            'marche_id' => $request->marche_id,
+            'prestataire_id' => $request->prestataire_id,
+            'date_livréson' => $request->date_livréson,
+            'delai_livreson' => $request->delai_livreson,
+            'lieu_livreson' => $request->lieu_livreson
+        ]);
+
+        return redirect()->route('attributions.index');
     }
 
     /**
@@ -52,9 +74,11 @@ class AtributionController extends Controller
      * @param  \App\Atribution  $atribution
      * @return \Illuminate\Http\Response
      */
-    public function show(Atribution $atribution)
+    public function show($id)
     {
-        //
+        $atribution = Atribution::findOrfail($id);
+        //dd($atribution);
+        return view('atribution.detail' , compact('atribution'));
     }
 
     /**
@@ -63,9 +87,13 @@ class AtributionController extends Controller
      * @param  \App\Atribution  $atribution
      * @return \Illuminate\Http\Response
      */
-    public function edit(Atribution $atribution)
+    public function edit(Atribution $id)
     {
-        //
+        $users = User::all();
+        $marché = Marche::all();
+        $prestataire =Prestataire::all();
+        $atribution = Atribution::findOrfail($id);
+        return view('atribution.modifier' , compact('atribution') , compact('users') , compact('prestataire'));
     }
 
     /**
@@ -75,9 +103,26 @@ class AtributionController extends Controller
      * @param  \App\Atribution  $atribution
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Atribution $atribution)
+    public function update(Request $request, Atribution $id)
     {
-        //
+        $validatedData = $request->validate([
+            'user_id' => 'required|Integer',
+            'marche_id' => 'required|Integer',
+            'prestataire_id' => 'required|Integer',
+            'date_livréson' => 'required|date',
+            'delai_livreson' => 'required|string',
+            'lieu_livreson' => 'required|string'
+        ]);
+        $atribution = Atribution::findOrfaild($id);
+        $atribution->update([
+            'user_id' => $request->user_id,
+            'marche_id' => $request->marche_id,
+            'prestataire_id' => $request->prestataire_id,
+            'date_livréson' => $request->date_livreson,
+            'delai_livreson' => $request->delai_livreson,
+            'lieu_livreson' => $request->lieu_livreson,
+        ]);
+        return redirect()->route('atributions.show' , $atribution);
     }
 
     /**
