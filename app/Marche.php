@@ -23,7 +23,7 @@ class Marche extends Model
 
         public function atributions(){
 
-            return $this->hasOne('App\Atribution');
+            return $this->belongsTo('App\Atribution');
         }
 
    /* public function prestataires(){
