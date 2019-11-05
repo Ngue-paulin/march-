@@ -15,6 +15,8 @@ class CreatePostulersTable extends Migration
     {
         Schema::create('postulers', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('marche_desc');
+            $table->string('prestataire_sct');
             $table->timestamps();
         });
     }
